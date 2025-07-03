@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RestaurantPosMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:RestaurantPosMaui"
+    xmlns:pages="clr-namespace:RestaurantPosMaui.Pages"
+    Shell.FlyoutBehavior="Locked"
+    Shell.FlyoutWidth="60"
+    Shell.FlyoutBackgroundColor="Wheat"
+    Title="Restaurant Pos">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Icon="home_regular_24.png"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Orders"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Icon="list_ul_regular_24.png"
+        Route="OrdersPage" />
+
+    <ShellContent
+        Title="Manage Menue"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Icon="grid_alt_regular_24.png"
+        Route="ManageMenueItemPage" />
+
+    <Shell.FlyoutFooter>
+        <Image Source="phone_regular_24.png" 
+               HeightRequest="20"
+               WidthRequest="20"
+               Margin="0, 0, 0, 25"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"
+               />
+    </Shell.FlyoutFooter>
+
+</Shell>

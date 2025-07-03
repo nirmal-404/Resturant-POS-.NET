@@ -1,0 +1,146 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>RestaurantPosMaui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>RestaurantPosMaui</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.restaurantposmaui</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+	  <None Remove="Resources\Images\beer.png" />
+	  <None Remove="Resources\Images\biryani.png" />
+	  <None Remove="Resources\Images\buns.png" />
+	  <None Remove="Resources\Images\burger_fries_combo.png" />
+	  <None Remove="Resources\Images\cake.png" />
+	  <None Remove="Resources\Images\chocolate.png" />
+	  <None Remove="Resources\Images\cocktail.png" />
+	  <None Remove="Resources\Images\coffee.png" />
+	  <None Remove="Resources\Images\credits.txt" />
+	  <None Remove="Resources\Images\cupcake.png" />
+	  <None Remove="Resources\Images\donut.png" />
+	  <None Remove="Resources\Images\drink.png" />
+	  <None Remove="Resources\Images\energy_drink.png" />
+	  <None Remove="Resources\Images\fast_food.png" />
+	  <None Remove="Resources\Images\fish.png" />
+	  <None Remove="Resources\Images\fish_and_chips.png" />
+	  <None Remove="Resources\Images\french_fries.png" />
+	  <None Remove="Resources\Images\fried_chicken.png" />
+	  <None Remove="Resources\Images\fried_egg.png" />
+	  <None Remove="Resources\Images\fried_rice.png" />
+	  <None Remove="Resources\Images\grid_alt_regular_24.png" />
+	  <None Remove="Resources\Images\hamburger.png" />
+	  <None Remove="Resources\Images\home_regular_24.png" />
+	  <None Remove="Resources\Images\hotdog.png" />
+	  <None Remove="Resources\Images\ice_cream.png" />
+	  <None Remove="Resources\Images\idli_platter.png" />
+	  <None Remove="Resources\Images\kebab.png" />
+	  <None Remove="Resources\Images\kimchi_jjiage.png" />
+	  <None Remove="Resources\Images\laddu.png" />
+	  <None Remove="Resources\Images\list_ul_regular_24.png" />
+	  <None Remove="Resources\Images\lobster.png" />
+	  <None Remove="Resources\Images\mango.png" />
+	  <None Remove="Resources\Images\masala_dosa.png" />
+	  <None Remove="Resources\Images\meal.png" />
+	  <None Remove="Resources\Images\nachos.png" />
+	  <None Remove="Resources\Images\noodles.png" />
+	  <None Remove="Resources\Images\orange_juice.png" />
+	  <None Remove="Resources\Images\pancakes.png" />
+	  <None Remove="Resources\Images\paneer.png" />
+	  <None Remove="Resources\Images\pasta.png" />
+	  <None Remove="Resources\Images\phone_regular_24.png" />
+	  <None Remove="Resources\Images\pie.png" />
+	  <None Remove="Resources\Images\pizza.png" />
+	  <None Remove="Resources\Images\pizza_slice.png" />
+	  <None Remove="Resources\Images\ramen.png" />
+	  <None Remove="Resources\Images\rice.png" />
+	  <None Remove="Resources\Images\roasted_chicken.png" />
+	  <None Remove="Resources\Images\salad_bowl.png" />
+	  <None Remove="Resources\Images\salad_plate.png" />
+	  <None Remove="Resources\Images\samosa.png" />
+	  <None Remove="Resources\Images\sandwich.png" />
+	  <None Remove="Resources\Images\snacks.png" />
+	  <None Remove="Resources\Images\soda.png" />
+	  <None Remove="Resources\Images\soft_drink.png" />
+	  <None Remove="Resources\Images\soju.png" />
+	  <None Remove="Resources\Images\spaghetti.png" />
+	  <None Remove="Resources\Images\sushi.png" />
+	  <None Remove="Resources\Images\taco.png" />
+	  <None Remove="Resources\Images\thai_food.png" />
+	  <None Remove="Resources\Images\thali.png" />
+	  <None Remove="Resources\Images\wrap.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Controls\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\ManageMenueItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\OrdersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

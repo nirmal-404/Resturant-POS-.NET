@@ -1,0 +1,83 @@
+## Ignore Visual Studio temporary files, build results, and user files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Oo]bj/
+[Bb]in/
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored if package restore is enabled
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Visual Studio for Mac
+.idea/
+*.userprefs
+
+# Xamarin/MAUI specific
+*.apk
+*.ap_
+*.aab
+*.jar
+*.keystore
+*.dex
+*.obb
+*.pdb
+*.mdb
+*.apk
+*.aab
+*.ipa
+*.app
+*.dsym
+*.xcarchive
+*.xcuserstate
+*.xcuserdatad
+
+# Code coverage results
+*.coverage
+*.coveragexml
+TestResults/
+
+# Configuration files
+appsettings*.json
+launchSettings.json
+
+# Local SQLite databases
+*.db
+*.sqlite
+
+# macOS generated files
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+
+# JetBrains Rider and ReSharper
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+# MAUI Previewer Cache
+.maui/
+
+# Localstack or Docker-generated volumes (optional)
+volume_data/
+
+# Environment files (optional)
+.env
+.env.*
