@@ -11,14 +11,11 @@ namespace RestaurantPosMaui
 
             MainPage = new AppShell();
 
-            _databaseService = databaseService;
-        }
-
-        protected override async void OnStart()
-        {
-            base.OnStart();
             // initialize and seed database
-            await _databaseService.InitilizeDatabaseAsync();
+            Task.Run(async () => await databaseService.InitilizeDatabaseAsync())
+                .GetAwaiter().
+                GetResult();
+
         }
     }
 }

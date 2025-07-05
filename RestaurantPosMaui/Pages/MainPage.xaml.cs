@@ -1,23 +1,21 @@
-﻿namespace RestaurantPosMaui.Pages;
+﻿using RestaurantPosMaui.ViewModels;
+
+namespace RestaurantPosMaui.Pages;
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
+    private HomeViewModel _homeViewModel;
 
-    public MainPage()
+    public MainPage(HomeViewModel homeViewModel)
     {
         InitializeComponent();
+        _homeViewModel = homeViewModel;
+        BindingContext = homeViewModel;
+        Initialize();
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        count++;
-
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+    private async void Initialize()
+    { 
+        await _homeViewModel.InitializeAsync();
     }
 }

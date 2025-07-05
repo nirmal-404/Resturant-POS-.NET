@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using RestaurantPosMaui.Data;
+using RestaurantPosMaui.Pages;
+using RestaurantPosMaui.ViewModels;
 using System.Runtime.CompilerServices;
 
 namespace RestaurantPosMaui
@@ -25,7 +27,9 @@ namespace RestaurantPosMaui
             builder.Logging.AddDebug();
 #endif
 
-            builder.Services.AddSingleton<DatabaseService>();
+            builder.Services.AddSingleton<DatabaseService>()
+                .AddSingleton<HomeViewModel>()
+                .AddSingleton<MainPage>();
 
             return builder.Build();
         }
