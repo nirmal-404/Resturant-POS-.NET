@@ -19,7 +19,7 @@ class SeedData
         return new List<MenuItem>
         {
             new MenuItem { Id = 1, Name = "Beer", Icon = "beer.png", Description = "Chilled beer for a relaxing time.", Price = 500 },
-            new MenuItem { Id = 2, Name = "Biryani", Icon = "biyani.png", Description = "Spicy and flavorful rice dish.", Price = 750 },
+            new MenuItem { Id = 2, Name = "Biryani", Icon = "biryani.png", Description = "Spicy and flavorful rice dish.", Price = 750 },
             new MenuItem { Id = 3, Name = "Buns", Icon = "buns.png", Description = "Soft and fluffy bread rolls, perfect as a snack or side.", Price = 200 },
             new MenuItem { Id = 4, Name = "Burger Combo", Icon = "burger_fries_combo.png", Description = "Burger with crispy fries.", Price = 950 },
             new MenuItem { Id = 5, Name = "Cake", Icon = "cake.png", Description = "Delicious layered dessert.", Price = 400 },
@@ -40,7 +40,7 @@ class SeedData
             new MenuItem { Id = 20, Name = "Ice Cream", Icon = "ice_cream.png", Description = "Cold and creamy dessert.", Price = 350 },
             new MenuItem { Id = 21, Name = "Idli Platter", Icon = "idli_platter.png", Description = "South Indian rice cakes.", Price = 400 },
             new MenuItem { Id = 22, Name = "Kebab", Icon = "kebab.png", Description = "Spicy grilled meat skewers.", Price = 800 },
-            new MenuItem { Id = 23, Name = "Kimchi Jjigae", Icon = "kimchi_jjigae.png", Description = "Korean spicy stew.", Price = 850 },
+            new MenuItem { Id = 23, Name = "Kimchi Jjigae", Icon = "kimchi_jjiage.png", Description = "Korean spicy stew.", Price = 850 },
             new MenuItem { Id = 24, Name = "Laddu", Icon = "laddu.png", Description = "Sweet Indian festive treat.", Price = 250 },
             new MenuItem { Id = 25, Name = "Lobster", Icon = "lobster.png", Description = "Luxurious seafood delicacy.", Price = 1500 },
             new MenuItem { Id = 26, Name = "Mango", Icon = "mango.png", Description = "Juicy tropical fruit.", Price = 300 },

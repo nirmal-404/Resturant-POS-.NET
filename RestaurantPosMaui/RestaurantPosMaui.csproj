@@ -105,6 +105,7 @@
 	  <None Remove="Resources\Images\salad_plate.png" />
 	  <None Remove="Resources\Images\samosa.png" />
 	  <None Remove="Resources\Images\sandwich.png" />
+	  <None Remove="Resources\Images\shopping_bag_regular_24.png" />
 	  <None Remove="Resources\Images\snacks.png" />
 	  <None Remove="Resources\Images\soda.png" />
 	  <None Remove="Resources\Images\soft_drink.png" />

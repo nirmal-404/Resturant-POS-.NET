@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace RestaurantPosMaui.Data;
 
@@ -10,7 +11,7 @@ public class DatabaseService
     public DatabaseService()
     {
         var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "restpos.db3");
-
+        Debug.WriteLine(dbPath);
         _connection = new SQLiteAsyncConnection(dbPath,
            SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache);
 

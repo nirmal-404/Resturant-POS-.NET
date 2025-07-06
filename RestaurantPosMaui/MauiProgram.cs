@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using RestaurantPosMaui.Data;
 using RestaurantPosMaui.Pages;
 using RestaurantPosMaui.ViewModels;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 
 namespace RestaurantPosMaui
@@ -11,6 +12,10 @@ namespace RestaurantPosMaui
     {
         public static MauiApp CreateMauiApp()
         {
+            var culture = new CultureInfo("en-LK");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
