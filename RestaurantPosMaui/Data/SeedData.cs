@@ -40,7 +40,7 @@ class SeedData
             new MenuItem { Id = 20, Name = "Ice Cream", Icon = "ice_cream.png", Description = "Cold and creamy dessert.", Price = 350 },
             new MenuItem { Id = 21, Name = "Idli Platter", Icon = "idli_platter.png", Description = "South Indian rice cakes.", Price = 400 },
             new MenuItem { Id = 22, Name = "Kebab", Icon = "kebab.png", Description = "Spicy grilled meat skewers.", Price = 800 },
-            new MenuItem { Id = 23, Name = "Kimchi Jjigae", Icon = "kimchi_jjiage.png", Description = "Korean spicy stew.", Price = 850 },
+            new MenuItem { Id = 23, Name = "Kimchi Jjigae", Icon = "kimchi_jjigae.png", Description = "Korean spicy stew.", Price = 850 },
             new MenuItem { Id = 24, Name = "Laddu", Icon = "laddu.png", Description = "Sweet Indian festive treat.", Price = 250 },
             new MenuItem { Id = 25, Name = "Lobster", Icon = "lobster.png", Description = "Luxurious seafood delicacy.", Price = 1500 },
             new MenuItem { Id = 26, Name = "Mango", Icon = "mango.png", Description = "Juicy tropical fruit.", Price = 300 },
@@ -62,13 +62,14 @@ class SeedData
             new MenuItem { Id = 42, Name = "Samosa", Icon = "samosa.png", Description = "Spicy Indian snack.", Price = 200 },
             new MenuItem { Id = 43, Name = "Sandwich", Icon = "sandwich.png", Description = "Layered bread with fillings.", Price = 400 },
             new MenuItem { Id = 44, Name = "Soda", Icon = "soda.png", Description = "Carbonated soft drink.", Price = 150 },
-            new MenuItem { Id = 45, Name = "Soju", Icon = "soju.png", Description = "Popular Korean alcohol.", Price = 550 },
-            new MenuItem { Id = 46, Name = "Spaghetti", Icon = "spaghetti.png", Description = "Italian pasta with sauce.", Price = 700 },
-            new MenuItem { Id = 47, Name = "Sushi", Icon = "sushi.png", Description = "Japanese vinegared rice roll.", Price = 950 },
-            new MenuItem { Id = 48, Name = "Taco", Icon = "taco.png", Description = "Mexican stuffed tortilla.", Price = 500 },
-            new MenuItem { Id = 49, Name = "Thai Food", Icon = "thai_food.png", Description = "Authentic Thai cuisine.", Price = 800 },
-            new MenuItem { Id = 50, Name = "Thali", Icon = "thali.png", Description = "Full Indian meal platter.", Price = 850 },
-            new MenuItem { Id = 51, Name = "Wrap", Icon = "wrap.png", Description = "Rolled sandwich wrap.", Price = 450 }
+            new MenuItem { Id = 45, Name = "Soft Drink", Icon = "soft_drink.png", Description = "Cool & fizzy refreshment.", Price = 400 },
+            new MenuItem { Id = 46, Name = "Soju", Icon = "soju.png", Description = "Popular Korean alcohol.", Price = 550 },
+            new MenuItem { Id = 47, Name = "Spaghetti", Icon = "spaghetti.png", Description = "Italian pasta with sauce.", Price = 700 },
+            new MenuItem { Id = 48, Name = "Sushi", Icon = "sushi.png", Description = "Japanese vinegared rice roll.", Price = 950 },
+            new MenuItem { Id = 49, Name = "Taco", Icon = "taco.png", Description = "Mexican stuffed tortilla.", Price = 500 },
+            new MenuItem { Id = 50, Name = "Thai Food", Icon = "thai_food.png", Description = "Authentic Thai cuisine.", Price = 800 },
+            new MenuItem { Id = 51, Name = "Thali", Icon = "thali.png", Description = "Full Indian meal platter.", Price = 850 },
+            new MenuItem { Id = 52, Name = "Wrap", Icon = "wrap.png", Description = "Rolled sandwich wrap.", Price = 450 }
 
 
         };
@@ -86,6 +87,42 @@ class SeedData
         new MenuItemCategoryMapping { MenuCategoryId = 1, MenuItemId = 30 },
         new MenuItemCategoryMapping { MenuCategoryId = 1, MenuItemId = 44 },
         new MenuItemCategoryMapping { MenuCategoryId = 1, MenuItemId = 45 },
+        new MenuItemCategoryMapping { MenuCategoryId = 1, MenuItemId = 46 },
+
+        // Main Course (ID = 2)
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 2 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 12 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 13 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 16 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 17 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 21 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 22 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 23 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 25 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 27 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 29 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 32 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 33 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 35 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 37 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 38 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 39 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 47 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 48 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 50 },
+        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 51 },
+        
+        // Snacks (ID = 3)
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 3 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 28 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 31 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 34 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 36 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 40 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 41 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 42 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 43 },
+        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 52 },
 
         // Desserts (ID = 4)
         new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 5 },
@@ -95,50 +132,15 @@ class SeedData
         new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 20 },
         new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 24 },
         new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 26 },
-        new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 31 },
-        new MenuItemCategoryMapping { MenuCategoryId = 4, MenuItemId = 34 },
-
-        // Main Course (ID = 2)
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 2 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 12 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 13 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 17 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 18 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 22 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 23 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 25 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 27 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 29 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 32 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 33 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 35 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 36 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 37 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 38 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 39 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 46 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 49 },
-        new MenuItemCategoryMapping { MenuCategoryId = 2, MenuItemId = 50 },
+        
 
         // Fast Food (ID = 5)
         new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 4 },
         new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 14 },
         new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 15 },
-        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 16 },
+        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 18 },
         new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 19 },
-        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 43 },
-        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 48 },
-        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 51 },
-
-        // Snacks (ID = 3)
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 3 },
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 21 },
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 28 },
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 40 },
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 41 },
-        new MenuItemCategoryMapping { MenuCategoryId = 3, MenuItemId = 42 }
+        new MenuItemCategoryMapping { MenuCategoryId = 5, MenuItemId = 49 },
     };
     }
-
-
 }
