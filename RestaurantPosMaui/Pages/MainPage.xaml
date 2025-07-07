@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:data="clr-namespace:RestaurantPosMaui.Data" 
              xmlns:models="clr-namespace:RestaurantPosMaui.Models"
+             xmlns:controls="clr-namespace:RestaurantPosMaui.Controls"
              xmlns:vm="clr-namespace:RestaurantPosMaui.ViewModels"
              x:Class="RestaurantPosMaui.Pages.MainPage"
              x:DataType="vm:HomeViewModel"
@@ -114,7 +115,10 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1" BackgroundColor="{StaticResource LightWheet}">
-            <Label Text="Current Order Items" />
+            <VerticalStackLayout>
+                <Label Text="Current Order Items" />
+                <controls:CurrentDateTimeControl />
+            </VerticalStackLayout>
 
         </Grid>
     </Grid>

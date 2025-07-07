@@ -18,13 +18,13 @@
 
     <ShellContent
         Title="Orders"
-        ContentTemplate="{DataTemplate pages:MainPage}"
+        ContentTemplate="{DataTemplate pages:OrdersPage}"
         Icon="list_ul_regular_24.png"
         Route="OrdersPage" />
 
     <ShellContent
         Title="Manage Menue"
-        ContentTemplate="{DataTemplate pages:MainPage}"
+        ContentTemplate="{DataTemplate pages:ManageMenueItemPage}"
         Icon="grid_alt_regular_24.png"
         Route="ManageMenueItemPage" />
 
