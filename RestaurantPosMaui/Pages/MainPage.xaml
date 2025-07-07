@@ -14,11 +14,15 @@
               RowDefinitions="Auto, Auto, *" 
               RowSpacing="15"
               Padding="15">
-            <Label Grid.Row="0" Text="Hello, Nirmal Perera" FontSize="22" FontAttributes="Bold"/>
+            <Label Grid.Row="0" 
+                   Text="Hello, Nirmal Perera" 
+                   FontSize="22" 
+                   FontAttributes="Bold"/>
 
             <CollectionView Grid.Row="1" ItemsSource="{Binding Categories}">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                    <LinearItemsLayout Orientation="Horizontal" 
+                                       ItemSpacing="10"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:MenuCategoryModel">
@@ -35,15 +39,20 @@
                                        TextColor="Maroon"
                                        VerticalOptions="Center">
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
-                                            <Setter Property="TextColor" Value="White"/>
+                                        <DataTrigger TargetType="Label" 
+                                                     Binding="{Binding IsSelected}" Value="True">
+                                            <Setter Property="TextColor" 
+                                                    Value="White"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
                             </HorizontalStackLayout>
                             <Border.Triggers>
-                                <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
-                                    <Setter Property="BackgroundColor" Value="Maroon"/>
+                                <DataTrigger TargetType="Border" 
+                                             Binding="{Binding IsSelected}" 
+                                             Value="True">
+                                    <Setter Property="BackgroundColor" 
+                                            Value="Maroon"/>
                                 </DataTrigger>
                             </Border.Triggers>
                             <Border.GestureRecognizers>
@@ -60,13 +69,19 @@
                 <!-- Collection view for menu items -->
                 <CollectionView ItemsSource="{Binding MenuItems}">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
+                        <GridItemsLayout Orientation="Vertical" Span="4" 
+                                         HorizontalItemSpacing="10" 
+                                         VerticalItemSpacing="10"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="data:MenuItem">
-                            <Border Padding="10" StrokeShape="RoundRectangle 10" Stroke="#DDD">
+                            <Border Padding="10" 
+                                    StrokeShape="RoundRectangle 10" 
+                                    Stroke="#DDD">
                                 <VerticalStackLayout Spacing="10">
-                                    <Border BackgroundColor="{StaticResource LightWheet}" HeightRequest="150" StrokeThickness="0">
+                                    <Border BackgroundColor="{StaticResource LightWheet}" 
+                                            HeightRequest="150" 
+                                            StrokeThickness="0">
                                         <Image Source="{Binding Icon}" 
                                                WidthRequest="250"
                                                MaximumHeightRequest="150"
@@ -74,28 +89,28 @@
                                                VerticalOptions="Center"
                                                Aspect="Center"/>                 
                                     </Border>
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        Text="{Binding Name}" />
-                                    <Label 
-                                        FontSize="12"
-                                        TextColor="Gray"
-                                        Text="{Binding Description}" />
+                                    <Label FontAttributes="Bold"
+                                           FontSize="20"
+                                           Text="{Binding Name}" />
+                                    <Label FontSize="12"
+                                           TextColor="Gray"
+                                           Text="{Binding Description}" />
                                     <FlexLayout JustifyContent="SpaceBetween">
-                                        <Label 
-                                            FontSize="25"
-                                            FontAttributes="Bold"
-                                            TextColor="Maroon"
-                                            Text="{Binding Price, StringFormat='{0:C}'}"/>
-                                        <ImageButton 
-                                            CornerRadius="8"
-                                            BackgroundColor="{StaticResource LightWheet}"
-                                            Source="shopping_bag_regular_24.png"
-                                            HeightRequest="25"
-                                            WidthRequest="25"/>
+                                        <Label FontSize="25"
+                                               FontAttributes="Bold"
+                                               TextColor="Maroon"
+                                               Text="{Binding Price, StringFormat='{0:C}'}"/>
+                                        <ImageButton CornerRadius="8"
+                                                     BackgroundColor="{StaticResource LightWheet}"
+                                                     Source="shopping_bag_regular_24.png"
+                                                     HeightRequest="25"
+                                                     WidthRequest="25"
+                                                     Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=AddToCartCommand}"
+                                                     CommandParameter="{Binding .}" />   
                                     </FlexLayout>
                                 </VerticalStackLayout>
+                                <Border.GestureRecognizers Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=AddToCartCommand}"
+                                                           CommandParameter="{Binding .}" />
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -114,12 +129,121 @@
                                    Color="Maroon"/>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" BackgroundColor="{StaticResource LightWheet}">
-            <VerticalStackLayout>
-                <Label Text="Current Order Items" />
+        <Grid Grid.Column="1" 
+              BackgroundColor="{StaticResource LightWheet}"
+              RowDefinitions="Auto, *, Auto " 
+              Padding="10">
+            <VerticalStackLayout Grid.Row="0" 
+                                 Spacing="5">
+                <Label 
+                    Text="Current Order" 
+                    FontAttributes="Bold"
+                    FontSize="25"/>
                 <controls:CurrentDateTimeControl />
             </VerticalStackLayout>
 
+            <Grid Grid.Row="1" 
+                  Padding="10" 
+                  BackgroundColor="Wheat">
+                <CollectionView 
+                     ItemsSource="{Binding CartItems}"> 
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" 
+                                           ItemSpacing="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:CartModel">
+                            <Grid>
+                                <Border Padding="5" 
+                                        BackgroundColor="{StaticResource LightWheet}">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <Grid ColumnDefinitions="60, *" 
+                                          ColumnSpacing="10">
+                                        <Border Grid.Column="0" 
+                                                HeightRequest="60" 
+                                                WidthRequest="60" 
+                                                Background="LightGray" 
+                                                StrokeShape="RoundRectangle 5">
+                                            <Image Source="{Binding Icon}" 
+                                                   HeightRequest="60" 
+                                                   WidthRequest="60" 
+                                                   Aspect="AspectFit"/>
+                                        </Border>
+                                        <VerticalStackLayout Grid.Column="1" 
+                                                             Spacing="5">
+                                            <Label Text="{Binding Name}" 
+                                                   FontSize="18" 
+                                                   FontAttributes="Bold"/>
+                                            <Grid ColumnDefinitions="Auto, *">
+                                                <Label Grid.Column="0" 
+                                                    Text="{Binding Price, StringFormat='{0:C}'}" 
+                                                    FontSize="18" 
+                                                    FontAttributes="Bold" 
+                                                    TextColor="Maroon"/>
+                                                <Grid Grid.Column="1"
+                                                      ColumnDefinitions="*, 2*, *"
+                                                      WidthRequest="120"
+                                                      HorizontalOptions="End">
+                                                    <ImageButton Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=DecreaseQuantityCommand}"
+                                                                 CommandParameter="{Binding .}" Grid.Column="0"
+                                                                 Source="minus_regular_24.png" 
+                                                                 MinimumHeightRequest="30"
+                                                                 MinimumWidthRequest="30"
+                                                                 Padding="5"
+                                                                 BackgroundColor="Yellow"
+                                                                 CornerRadius="5"/>
+                                                    <Label Grid.Column="1" 
+                                                           Padding="5"
+                                                           BackgroundColor="White"
+                                                           FontSize="18"
+                                                           HeightRequest="30"
+                                                           HorizontalOptions="Center"
+                                                           HorizontalTextAlignment="Center"
+                                                           Text="{Binding Quantity}"
+                                                           TextColor="Maroon"
+                                                           WidthRequest="60"/>
+
+                                                    <ImageButton Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=IncreaseQuantityCommand}"
+                                                                 CommandParameter="{Binding .}" 
+                                                                 Grid.Column="2"
+                                                                 Source="plus_regular_24.png" 
+                                                                 MinimumHeightRequest="30"
+                                                                 MinimumWidthRequest="30"
+                                                                 Padding="5"
+                                                                 BackgroundColor="Yellow"
+                                                                 CornerRadius="5">
+                                                    </ImageButton>
+
+                                                </Grid>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Border>
+                                <ImageButton Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=RemoveItemFromCartCommand}"
+                                             CommandParameter="{Binding .}" 
+                                             Source="x_regular_24.png" 
+                                             HorizontalOptions="End" 
+                                             VerticalOptions="Start" 
+                                             CornerRadius="5"
+                                             MinimumHeightRequest="25"
+                                             MinimumWidthRequest="25"
+                                             BackgroundColor="Red"
+                                             ToolTipProperties.Text="Remove this item from cart">
+                                    <ImageButton.Shadow>
+                                        <Shadow Brush="Red"/>
+                                    </ImageButton.Shadow>
+                                </ImageButton>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <!-- Collection view for cart items -->
+            <VerticalStackLayout Grid.Row="2">
+                <!-- Subtotal, Tax, Amount, Buttons-->
+            </VerticalStackLayout>
         </Grid>
     </Grid>
 

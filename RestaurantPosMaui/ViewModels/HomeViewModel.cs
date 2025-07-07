@@ -4,6 +4,7 @@ using RestaurantPosMaui.Data;
 using RestaurantPosMaui.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ public partial class HomeViewModel : ObservableObject
 
     [ObservableProperty]
     private MenuCategoryModel? _selectedCategory =null;
+
+    public ObservableCollection<CartModel> CartItems { get; set; } = new();
 
     [ObservableProperty]
     private bool _isLoading;
@@ -80,4 +83,46 @@ public partial class HomeViewModel : ObservableObject
             Debug.WriteLine($"Id: {item.Id}, Name: {item.Name}, Price: {item.Price}, Icon: {item.Icon}");
         } */
     }
+
+    [RelayCommand]
+    private void AddToCart(MenuItem menuItem)
+    {
+        var cartItem = CartItems.FirstOrDefault(c => c.ItemId == menuItem.Id);
+
+        if (cartItem == null)
+        {
+            // Item does not exist in the cart
+            // Add item to the cart
+            cartItem = new CartModel
+            {
+                ItemId = menuItem.Id,
+                Icon = menuItem.Icon,
+                Name = menuItem.Name,
+                Price = menuItem.Price,
+                Quantity = 1
+            };
+            CartItems.Add(cartItem);
+        }
+        else
+        {
+            // This item exist in the cart
+            // Increase the quantity for this item in the cart
+            cartItem.Quantity++;
+
+        }
+    }
+
+    [RelayCommand]
+    private void IncreaseQuantity(CartModel cartItem) => cartItem.Quantity++;
+
+    [RelayCommand]
+    private void DecreaseQuantity(CartModel cartItem)
+    {
+        cartItem.Quantity--;
+        if(cartItem.Quantity == 0)
+            CartItems.Remove(cartItem);
+    }
+
+    [RelayCommand]
+    private void RemoveItemFromCart(CartModel cartItem) => CartItems.Remove(cartItem);
 }

@@ -24,4 +24,3 @@ public partial class MenuCategoryModel : ObservableObject
             Icon = entity.Icon,
         };
 }
-

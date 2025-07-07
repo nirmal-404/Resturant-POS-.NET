@@ -88,6 +88,7 @@
 	  <None Remove="Resources\Images\mango.png" />
 	  <None Remove="Resources\Images\masala_dosa.png" />
 	  <None Remove="Resources\Images\meal.png" />
+	  <None Remove="Resources\Images\minus_regular_24.png" />
 	  <None Remove="Resources\Images\nachos.png" />
 	  <None Remove="Resources\Images\noodles.png" />
 	  <None Remove="Resources\Images\orange_juice.png" />
@@ -98,6 +99,7 @@
 	  <None Remove="Resources\Images\pie.png" />
 	  <None Remove="Resources\Images\pizza.png" />
 	  <None Remove="Resources\Images\pizza_slice.png" />
+	  <None Remove="Resources\Images\plus_regular_24.png" />
 	  <None Remove="Resources\Images\ramen.png" />
 	  <None Remove="Resources\Images\rice.png" />
 	  <None Remove="Resources\Images\roasted_chicken.png" />
@@ -116,6 +118,7 @@
 	  <None Remove="Resources\Images\thai_food.png" />
 	  <None Remove="Resources\Images\thali.png" />
 	  <None Remove="Resources\Images\wrap.png" />
+	  <None Remove="Resources\Images\x_regular_24.png" />
 	</ItemGroup>
 
 	<ItemGroup>
