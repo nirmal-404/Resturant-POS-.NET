@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using RestaurantPosMaui.Models;
+using SQLite;
 using System.ComponentModel;
 using System.Diagnostics;
 
@@ -61,6 +62,46 @@ public class DatabaseService
         return [..menuItems];
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns>Returns error massege or null (if the operation is successfull)</returns>
+    public async Task<string?> PlaceOrderAsync(OrderModel model)
+    {
+        var order = new Order
+        {
+            OrderDate = model.OrderDate,
+            PaymentMode = model.PaymentMode,
+            TotalAmountPaid = model.TotalAmountPaid,
+            TotalItemsCount = model.TotalItemsCount,
+        };
+
+        if (await _connection.InsertAsync(order) > 0)
+        {
+            // Order Inserted successfully
+            // Now we have the newly inserted order id in order.id
+            // Now we can add the orderId to the OrderItems and Insert OrderItems in the database
+            foreach (var item in model.Items)
+            {
+                item.OrderId = order.Id;
+            }
+            if (await _connection.InsertAllAsync(model.Items) == 0)
+            {
+                // Order Items insert operation failed
+                // Remove the newly inserted order also
+                await _connection.DeleteAsync(order);
+                return "Error in inserting order item";
+            }
+
+        }
+        else 
+        {
+            return "Error in inserting the order";
+        }
+        model.Id = order.Id;
+        return null;
+    }
     public async ValueTask DisposeAsync()
     {
         if (_connection != null)

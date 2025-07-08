@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MenuItem = RestaurantPosMaui.Data.MenuItem;
 
@@ -15,6 +16,7 @@ namespace RestaurantPosMaui.ViewModels;
 public partial class HomeViewModel : ObservableObject
 {
     private readonly DatabaseService _databaseService;
+    private readonly OrdersViewModel _ordersViewModel;
 
     [ObservableProperty]
     private MenuCategoryModel[] _categories = [];
@@ -40,9 +42,10 @@ public partial class HomeViewModel : ObservableObject
 
     public decimal Total => Subtotal + TaxAmout;
 
-    public HomeViewModel(DatabaseService databaseService) 
+    public HomeViewModel(DatabaseService databaseService, OrdersViewModel ordersViewModel) 
     {
         _databaseService = databaseService;
+        _ordersViewModel = ordersViewModel;
         CartItems.CollectionChanged += CartItems_CollectionChanged;
     }
 
@@ -188,5 +191,19 @@ public partial class HomeViewModel : ObservableObject
             TaxPercentage = enteredTaxPercentage;
         }
     
+    }
+
+    [RelayCommand]
+    private async Task PlaceOrderAsync(bool isPaidOnline)
+    {
+        IsLoading = true;
+        Debug.WriteLine(JsonSerializer.Serialize(CartItems, new JsonSerializerOptions { WriteIndented = true }));
+        if (await _ordersViewModel.PlaceOrderAsync([.. CartItems], isPaidOnline))
+        { 
+            // Prderr creation successfull
+            // Clear the cart items
+            CartItems.Clear();
+        }
+        IsLoading = false;
     }
 }
