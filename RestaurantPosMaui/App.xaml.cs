@@ -17,5 +17,14 @@ namespace RestaurantPosMaui
                 GetResult();
 
         }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            var window = base.CreateWindow(activationState);
+            window.MinimumHeight = 800;
+            window.MinimumWidth = 1320;
+
+            return window;
+        }
     }
 }

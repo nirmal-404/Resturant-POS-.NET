@@ -30,10 +30,29 @@ public partial class HomeViewModel : ObservableObject
     [ObservableProperty]
     private bool _isLoading;
 
+    [ObservableProperty, NotifyPropertyChangedFor(nameof(Total)), NotifyPropertyChangedFor(nameof(TaxAmout))]
+    private decimal _subtotal;
+
+    [ObservableProperty, NotifyPropertyChangedFor(nameof(Total)), NotifyPropertyChangedFor(nameof(TaxAmout))]
+    private int _taxPercentage;
+
+    public decimal TaxAmout => (Subtotal * TaxPercentage) / 100;
+
+    public decimal Total => Subtotal + TaxAmout;
 
     public HomeViewModel(DatabaseService databaseService) 
     {
         _databaseService = databaseService;
+        CartItems.CollectionChanged += CartItems_CollectionChanged;
+    }
+
+    private void CartItems_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        // This will be executed whenever we are
+        //      Adding item to the cart
+        //      Rmoveing item form the cart
+        //      Or clearing the cart
+        RecalculateAmount();
     }
 
     private bool _isInitialized;
@@ -108,12 +127,16 @@ public partial class HomeViewModel : ObservableObject
             // This item exist in the cart
             // Increase the quantity for this item in the cart
             cartItem.Quantity++;
-
+            RecalculateAmount();
         }
     }
 
     [RelayCommand]
-    private void IncreaseQuantity(CartModel cartItem) => cartItem.Quantity++;
+    private void IncreaseQuantity(CartModel cartItem)
+    {
+        cartItem.Quantity++;
+        RecalculateAmount();
+    }
 
     [RelayCommand]
     private void DecreaseQuantity(CartModel cartItem)
@@ -121,8 +144,49 @@ public partial class HomeViewModel : ObservableObject
         cartItem.Quantity--;
         if(cartItem.Quantity == 0)
             CartItems.Remove(cartItem);
+        else
+            RecalculateAmount();
     }
 
     [RelayCommand]
     private void RemoveItemFromCart(CartModel cartItem) => CartItems.Remove(cartItem);
+
+    [RelayCommand]
+    private async Task ClearCartAsync()
+    {
+        if (await Shell.Current.DisplayAlert("Clear Cart?", "Do you really want to clear the cart", "Yes", "No"))
+        {
+            CartItems.Clear();
+        }
+
+    }
+
+    private void RecalculateAmount()
+    { 
+        Subtotal = CartItems.Sum(c => c.Amount);
+    }
+
+    [RelayCommand]
+    private async Task TaxPercentageClickAsync()
+    {
+        var result = await Shell.Current.DisplayPromptAsync("Tax Percentage", "Enter the applicable tax percentage", placeholder: "10", initialValue: TaxPercentage.ToString());
+
+        if (!string.IsNullOrWhiteSpace(result))
+        {
+            if (!int.TryParse(result, out int enteredTaxPercentage)) 
+            {
+                await Shell.Current.DisplayAlert("Invalid value", "Entered tax percentage is invalid", "Ok");
+                return;
+            }
+
+            // if it is a negative value
+            if (enteredTaxPercentage < 0) {
+                await Shell.Current.DisplayAlert("Invalid value", "Tax perventage cannot be a negative value", "Ok");
+                return;
+            }
+
+            TaxPercentage = enteredTaxPercentage;
+        }
+    
+    }
 }
