@@ -4,6 +4,7 @@ using RestaurantPosMaui.Data;
 using RestaurantPosMaui.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ public partial class OrdersViewModel : ObservableObject
     { 
         _databaseService = databaseService;
     }
+
+    public ObservableCollection<Order> Orders { get; set; } = [];
 
     // Returns true if the order creation was successfull, false otherwise
     public async Task<bool> PlaceOrderAsync(CartModel[] cartItems, bool isPaidOnline)
@@ -51,5 +54,25 @@ public partial class OrdersViewModel : ObservableObject
         return true;
     }
 
+
+    private bool _isInitialized;
+
+    [ObservableProperty]
+    private bool _isLoading;
+
+    public async Task InitilizeAsync()
+    { 
+        if(_isInitialized) return;
+        _isInitialized = true;
+        IsLoading = true;
+
+        var orders = await _databaseService.GetOrdersAsync();
+
+        foreach (var order in orders)
+        { 
+            Orders.Add(order);
+        }
+        IsLoading = false;
+    }
 }
 
