@@ -199,8 +199,10 @@
                                                     <ImageButton Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=DecreaseQuantityCommand}"
                                                                  CommandParameter="{Binding .}" Grid.Column="0"
                                                                  Source="minus_regular_24.png" 
-                                                                 MinimumHeightRequest="30"
-                                                                 MinimumWidthRequest="30"
+                                                                 MinimumHeightRequest="25"
+                                                                 MinimumWidthRequest="25"
+                                                                 HeightRequest="5"
+                                                                 WidthRequest="5"
                                                                  Padding="5"
                                                                  BackgroundColor="Yellow"
                                                                  CornerRadius="5"/>
@@ -219,8 +221,10 @@
                                                                  CommandParameter="{Binding .}" 
                                                                  Grid.Column="2"
                                                                  Source="plus_regular_24.png" 
-                                                                 MinimumHeightRequest="30"
-                                                                 MinimumWidthRequest="30"
+                                                                 MinimumHeightRequest="25"
+                                                                 MinimumWidthRequest="25"
+                                                                 HeightRequest="5"
+                                                                 WidthRequest="5"
                                                                  Padding="5"
                                                                  BackgroundColor="Yellow"
                                                                  CornerRadius="5">
@@ -237,9 +241,13 @@
                                              HorizontalOptions="End" 
                                              VerticalOptions="Start" 
                                              CornerRadius="5"
-                                             MinimumHeightRequest="25"
-                                             MinimumWidthRequest="25"
+                                             MinimumHeightRequest="20"
+                                             HeightRequest="5"
+                                             WidthRequest="5"
+                                             Padding="5"
+                                             MinimumWidthRequest="20"
                                              BackgroundColor="Red"
+                                             Margin="0,5,8,0"
                                              ToolTipProperties.Text="Remove this item from cart">
                                     <ImageButton.Shadow>
                                         <Shadow Brush="Red"/>
