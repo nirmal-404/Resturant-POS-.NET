@@ -7,7 +7,7 @@ A modern, cross-platform Restaurant Point-of-Sale (POS) system built using .NET 
 ### 🚧 Project Status
 This project is currently in the **planning and early development** phase.
 
-🛠️ **Estimated Completion**: 2025-14-05
+🛠️ **Estimated Completion**: 2025-07-14
 
 ---
 
