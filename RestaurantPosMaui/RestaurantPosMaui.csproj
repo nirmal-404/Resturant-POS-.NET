@@ -64,6 +64,7 @@
 	  <None Remove="Resources\Images\coffee.png" />
 	  <None Remove="Resources\Images\credits.txt" />
 	  <None Remove="Resources\Images\cupcake.png" />
+	  <None Remove="Resources\Images\cylinder_regular_60.png" />
 	  <None Remove="Resources\Images\donut.png" />
 	  <None Remove="Resources\Images\drink.png" />
 	  <None Remove="Resources\Images\energy_drink.png" />

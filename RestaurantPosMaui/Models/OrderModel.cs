@@ -1,4 +1,5 @@
-﻿using RestaurantPosMaui.Data;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using RestaurantPosMaui.Data;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RestaurantPosMaui.Models;
-public class OrderModel
+
+
+public partial class OrderModel : ObservableObject
 {
     public long Id { get; set; }
 
@@ -20,5 +23,9 @@ public class OrderModel
     public string PaymentMode { get; set; } // Cash or Online
 
     public OrderItem[] Items { get; set; }
+
+    [ObservableProperty]
+    private bool _isSelected;
+
 }
 
