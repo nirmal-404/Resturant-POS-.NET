@@ -17,6 +17,7 @@ namespace RestaurantPosMaui
             CultureInfo.DefaultThreadCurrentUICulture = culture;
 
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

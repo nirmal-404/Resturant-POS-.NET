@@ -1,5 +1,5 @@
 ﻿using RestaurantPosMaui.ViewModels;
-
+using MenuItem = RestaurantPosMaui.Data.MenuItem;
 namespace RestaurantPosMaui.Pages;
 
 public partial class MainPage : ContentPage
@@ -18,4 +18,15 @@ public partial class MainPage : ContentPage
     { 
         await _homeViewModel.InitializeAsync();
     }
+
+    private async void CategoriesListControl_OnCategorySelected(Models.MenuCategoryModel category) 
+    { 
+        await _homeViewModel.SelectCategoryCommand.ExecuteAsync(category.Id);
+    }
+
+    private async void MenuItemsListControl_OnSelectItem(MenuItem menuItem)
+    {
+        _homeViewModel.AddToCartCommand.Execute(menuItem);
+    }
+
 }
