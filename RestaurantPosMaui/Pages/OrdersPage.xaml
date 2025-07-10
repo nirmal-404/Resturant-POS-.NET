@@ -207,6 +207,7 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
                                 <Grid ColumnDefinitions="60, *" ColumnSpacing="10">
+                                    <!--  60  -->
                                     <Border
                                         Grid.Column="0"
                                         Background="LightGray"
@@ -219,12 +220,15 @@
                                             Source="{Binding Icon}"
                                             WidthRequest="60" />
                                     </Border>
+
+                                    <!--  *  -->
                                     <VerticalStackLayout Grid.Column="1" Spacing="5">
                                         <Label
                                             FontAttributes="Bold"
                                             FontSize="18"
                                             Text="{Binding Name}" />
                                         <Grid ColumnDefinitions="Auto, *">
+                                            <!--  Auto  -->
                                             <HorizontalStackLayout Spacing="3">
                                                 <Label
                                                     FontSize="18"
@@ -239,6 +243,8 @@
                                                     Text="{Binding Price, StringFormat='{0:C}'}"
                                                     TextColor="Maroon" />
                                             </HorizontalStackLayout>
+
+                                            <!--  *  -->
                                             <Label
                                                 Grid.Column="1"
                                                 Margin="0,0,5,0"
@@ -253,6 +259,8 @@
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+
+                    <!--  Empty  -->
                     <CollectionView.EmptyView>
                         <Grid MinimumHeightRequest="250" RowDefinitions="*, Auto, *">
                             <!--  *  -->

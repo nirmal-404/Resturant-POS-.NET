@@ -17,6 +17,7 @@
     </ContentPage.Resources>
 
     <Grid ColumnDefinitions=".75*, .25*">
+        <!-- .75 -->
         <Grid
             Grid.Column="0"
             Padding="15"
@@ -36,7 +37,6 @@
 
             <Grid Grid.Row="2">
                 <!--  Collection view for menu items  -->
-
                 <controls:MenuItemsListControl Items="{Binding MenuItems}" OnSelectItem="MenuItemsListControl_OnSelectItem" />
 
                 <BoxView
@@ -44,6 +44,7 @@
                     IsVisible="{Binding IsLoading}"
                     VerticalOptions="Fill"
                     Color="{StaticResource LightWheet}" />
+                
                 <!--  Loading indicator  -->
                 <ActivityIndicator
                     HeightRequest="25"
@@ -55,6 +56,7 @@
             </Grid>
         </Grid>
 
+        <!-- .25 -->
         <Grid
             Grid.Column="1"
             Padding="0,10"
@@ -112,11 +114,13 @@
                                                     FontSize="18"
                                                     Text="{Binding Price, StringFormat='{0:C}'}"
                                                     TextColor="Maroon" />
+                                                <!-- Controls -->
                                                 <Grid
                                                     Grid.Column="1"
                                                     ColumnDefinitions="*, 2*, *"
                                                     HorizontalOptions="End"
                                                     WidthRequest="120">
+                                                    <!-- (-) -->
                                                     <ImageButton
                                                         Grid.Column="0"
                                                         Padding="5"
@@ -140,7 +144,7 @@
                                                         Text="{Binding Quantity}"
                                                         TextColor="Maroon"
                                                         WidthRequest="60" />
-
+                                                    <!-- (+) -->
                                                     <ImageButton
                                                         Grid.Column="2"
                                                         Padding="5"
@@ -159,6 +163,7 @@
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Border>
+                                <!-- Close button -->
                                 <ImageButton
                                     Margin="0,5,8,0"
                                     Padding="5"
@@ -258,12 +263,14 @@
                             StrokeDashArray="50, 5"
                             StrokeThickness="0.5" />
 
+                        <!-- Controls -->
                         <Grid
                             Grid.Row="5"
                             Grid.ColumnSpan="2"
                             ColumnDefinitions="Auto, *, Auto, Auto"
                             ColumnSpacing="5">
 
+                            <!-- Clear -->
                             <Button
                                 Grid.Column="0"
                                 BackgroundColor="Red"
@@ -273,6 +280,7 @@
                                 Text="X"
                                 ToolTipProperties.Text="Clear the cart" />
 
+                            <!-- Cash -->
                             <Button
                                 Grid.Column="2"
                                 BackgroundColor="DarkOliveGreen"
@@ -285,6 +293,7 @@
                                 </Button.CommandParameter>
                             </Button>
 
+                            <!-- Online -->
                             <Button
                                 Grid.Column="3"
                                 BackgroundColor="DarkOliveGreen"
