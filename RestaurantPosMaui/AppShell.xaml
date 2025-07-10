@@ -5,10 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RestaurantPosMaui"
     xmlns:pages="clr-namespace:RestaurantPosMaui.Pages"
-    Shell.FlyoutBehavior="Locked"
-    Shell.FlyoutWidth="60"
+    Title="Restaurant Pos"
     Shell.FlyoutBackgroundColor="Wheat"
-    Title="Restaurant Pos">
+    Shell.FlyoutBehavior="Locked"
+    Shell.FlyoutWidth="60">
 
     <ShellContent
         Title="Home"
@@ -29,13 +29,13 @@
         Route="ManageMenueItemPage" />
 
     <Shell.FlyoutFooter>
-        <Image Source="phone_regular_24.png" 
-               HeightRequest="20"
-               WidthRequest="20"
-               Margin="0, 0, 0, 25"
-               Aspect="AspectFit"
-               HorizontalOptions="Center"
-               />
+        <Image
+            Margin="0,0,0,25"
+            Aspect="AspectFit"
+            HeightRequest="20"
+            HorizontalOptions="Center"
+            Source="phone_regular_24.png"
+            WidthRequest="20" />
     </Shell.FlyoutFooter>
 
 </Shell>

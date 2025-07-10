@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:RestaurantPosMaui.Controls"
-             x:Class="RestaurantPosMaui.Pages.ManageMenueItemPage"
-             Title="ManageMenueItemPage">
+<ContentPage
+    x:Class="RestaurantPosMaui.Pages.ManageMenueItemPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:RestaurantPosMaui.Controls"
+    Title="ManageMenueItemPage">
     <VerticalStackLayout>
-        <Label 
+        <Label
+            HorizontalOptions="Center"
             Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            VerticalOptions="Center" />
         <controls:CurrentDateTimeControl />
     </VerticalStackLayout>
 </ContentPage>
