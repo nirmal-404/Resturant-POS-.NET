@@ -55,7 +55,7 @@
                                 CommandParameter="{Binding .}"
                                 CornerRadius="8"
                                 HeightRequest="25"
-                                Source="shopping_bag_regular_24.png"
+                                Source="{Binding Source={x:Reference this}, Path=ActionIcon}"
                                 WidthRequest="25" />
                         </FlexLayout>
                     </VerticalStackLayout>

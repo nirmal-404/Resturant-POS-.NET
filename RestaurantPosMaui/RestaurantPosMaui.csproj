@@ -67,6 +67,7 @@
 	  <None Remove="Resources\Images\cylinder_regular_60.png" />
 	  <None Remove="Resources\Images\donut.png" />
 	  <None Remove="Resources\Images\drink.png" />
+	  <None Remove="Resources\Images\edit_solid_24.png" />
 	  <None Remove="Resources\Images\energy_drink.png" />
 	  <None Remove="Resources\Images\fast_food.png" />
 	  <None Remove="Resources\Images\fish.png" />
@@ -133,6 +134,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\ManageMenuItemPage.xaml.cs">
+	    <DependentUpon>ManageMenuItemPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Controls\CategoriesListControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -142,7 +149,7 @@
 	  <MauiXaml Update="Controls\MenuItemsListControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ManageMenueItemPage.xaml">
+	  <MauiXaml Update="Pages\ManageMenuItemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\OrdersPage.xaml">

@@ -24,7 +24,7 @@
 
     <ShellContent
         Title="Manage Menue"
-        ContentTemplate="{DataTemplate pages:ManageMenueItemPage}"
+        ContentTemplate="{DataTemplate pages:ManageMenuItemPage}"
         Icon="grid_alt_regular_24.png"
         Route="ManageMenueItemPage" />
 
