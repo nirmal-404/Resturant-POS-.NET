@@ -24,5 +24,9 @@ public partial class ManageMenuItemPage : ContentPage
 
     private async void MenuItemsListControl_OnSelectItem(Data.MenuItem menuItem) =>
         await _manageMenuItemsViewModel.EditMenuItemCommand.ExecuteAsync(menuItem);
-    
-}  
+
+    private void SaveMenuItemFormControl_OnCancel()
+    {
+        _manageMenuItemsViewModel.CancelCommand.Execute(null);
+    }
+}

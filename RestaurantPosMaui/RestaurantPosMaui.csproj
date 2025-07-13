@@ -82,6 +82,7 @@
 	  <None Remove="Resources\Images\hotdog.png" />
 	  <None Remove="Resources\Images\ice_cream.png" />
 	  <None Remove="Resources\Images\idli_platter.png" />
+	  <None Remove="Resources\Images\image_add_regular_36.png" />
 	  <None Remove="Resources\Images\kebab.png" />
 	  <None Remove="Resources\Images\kimchi_jjiage.png" />
 	  <None Remove="Resources\Images\laddu.png" />
@@ -134,6 +135,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\SaveMenuItemFormControl.xaml.cs">
+	    <DependentUpon>SaveMenuItemFormControl.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\ManageMenuItemPage.xaml.cs">
 	    <DependentUpon>ManageMenuItemPage.xaml</DependentUpon>
 	  </Compile>
@@ -147,6 +151,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\MenuItemsListControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\SaveMenuItemFormControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ManageMenuItemPage.xaml">

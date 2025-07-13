@@ -109,6 +109,21 @@ public class DatabaseService
     public async Task<OrderItem[]> GetOrderItemsAsync(long orderId) =>
         await _connection.Table<OrderItem>().Where(oi => oi.OrderId == orderId).ToArrayAsync();
 
+    public async Task<MenuCategory[]> GetCategoriesOfMenuItem(int menuItemId)
+    {
+        var query = @" 
+                    SELECT cat.* 
+                    FROM Menucategory cat 
+                    INNER JOIN MenuItemCategoryMapping map
+                        ON cat.Id = map.MenuCategoryId
+                    WHERE map.MenuCategoryId = ?
+            ";
+
+        var categories = await _connection.QueryAsync<MenuCategory>(query, menuItemId);
+
+        return [.. categories];
+    }
+
     public async ValueTask DisposeAsync()
     {
         if (_connection != null)

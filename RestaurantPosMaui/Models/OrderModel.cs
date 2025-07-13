@@ -28,4 +28,3 @@ public partial class OrderModel : ObservableObject
     private bool _isSelected;
 
 }
-

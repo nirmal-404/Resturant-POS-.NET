@@ -32,6 +32,9 @@ public partial class ManageMenuItemsViewModel : ObservableObject
     [ObservableProperty]
     private bool _isLoading;
 
+    [ObservableProperty]
+    private MenuItemModel _menuItem = new();
+
     private bool _isInitialized;
     public async ValueTask InitializeAsync()
     {
@@ -50,7 +53,26 @@ public partial class ManageMenuItemsViewModel : ObservableObject
 
         MenuItems = await _databaseService.GetMenuItemsByCategoryAsync(SelectedCategory.Id);
 
+        SetEmptyCategoriesToItem();
+
         IsLoading = false;
+    }
+
+
+    private void SetEmptyCategoriesToItem()
+    {
+        MenuItem.Categories.Clear();
+        foreach (var category in Categories)
+        {
+            var categoryOfItem = new MenuCategoryModel
+            {
+                Id = category.Id,
+                Icon = category.Icon,
+                Name = category.Name,
+                IsSelected = false
+            };
+            MenuItem.Categories.Add(categoryOfItem);
+        }
     }
 
     [RelayCommand]
@@ -83,7 +105,41 @@ public partial class ManageMenuItemsViewModel : ObservableObject
     [RelayCommand]
     private async Task EditMenuItemAsync(MenuItem menuItem)
     {
-        await Shell.Current.DisplayAlert("Edit", "Edit menue item", "Ok");
+        //await Shell.Current.DisplayAlert("Edit", "Edit menue item", "Ok");
+        var menuItemModel = new MenuItemModel
+        {
+            Description = menuItem.Description,
+            Icon = menuItem.Icon,
+            Id = menuItem.Id,
+            Name = menuItem.Name,
+            Price = menuItem.Price,
+        };
+
+        var itemCategoris = await _databaseService.GetCategoriesOfMenuItem(menuItem.Id);
+
+        foreach (var category in Categories)
+        {
+            var categoryOfItem = new MenuCategoryModel
+            {
+                Icon = category.Icon,
+                Id = category.Id,
+                Name = category.Name
+            };
+
+            if (itemCategoris.Any(c => c.Id == category.Id))
+                categoryOfItem.IsSelected = true;
+            else
+                categoryOfItem.IsSelected = false;
+
+            menuItemModel.Categories.Add(category);
+        }
+        MenuItem = menuItemModel;
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
+        MenuItem = new();
+        SetEmptyCategoriesToItem();
     }
 }
-
